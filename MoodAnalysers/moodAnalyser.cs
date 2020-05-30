@@ -13,13 +13,23 @@ namespace MoodAnalysers
             this.Message = Message;
         }
 
+
         public string varificatioTest()
         {
-            if (this.Message == "Happy")
+            try
+            {
+                if (Message.Contains( "Happy"))
+                {
+                    return "Happy";
+                }
+                else
+                {
+                    return "Sad"; 
+                }
+            }catch(NullReferenceException e)
             {
                 return "Happy";
             }
-            return "Sad";
         }
 
     }

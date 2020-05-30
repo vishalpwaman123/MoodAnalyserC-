@@ -32,5 +32,17 @@ namespace MoodAnalysersTest
             Assert.AreEqual("Sad", result);
         }
 
+        /// <summary>
+        /// Added: Code Of Given Mood when Pass Null Pointer should Return Happy
+        /// </summary>
+        [Test]
+        public void givenMood_whenPassNullParameter_shouldReturnHappy()
+        {
+            moodAnalyser MoodA = new moodAnalyser(null);
+            string result = MoodA.varificatioTest();
+            Assert.AreEqual("Happy", result);
+
+        }
+
     }
 }
