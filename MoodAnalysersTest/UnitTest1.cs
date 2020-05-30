@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using MoodAnalysers;
+using System;
 
 namespace MoodAnalysersTest
 {
@@ -38,10 +39,17 @@ namespace MoodAnalysersTest
         [Test]
         public void givenMood_whenPassNullParameter_shouldReturnHappy()
         {
-            moodAnalyser MoodA = new moodAnalyser(null);
-            string result = MoodA.varificatioTest();
-            Assert.AreEqual("Happy", result);
-
+            
+            string result = null;
+            try
+            {
+                moodAnalyser MoodA = new moodAnalyser(null);
+                result = MoodA.varificatioTest();    
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual(MoodAnalyserException.ExceptionType.ENTERED_NULL, e.type);
+            }
         }
 
     }

@@ -18,7 +18,7 @@ namespace MoodAnalysers
         {
             try
             {
-                if (Message.Contains( "Happy"))
+                if (Message.Contains("Happy"))
                 {
                     return "Happy";
                 }
@@ -26,9 +26,9 @@ namespace MoodAnalysers
                 {
                     return "Sad"; 
                 }
-            }catch(NullReferenceException e)
+            }catch(NullReferenceException)
             {
-                return "Happy";
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_NULL,"Please Enter Proper");
             }
         }
 
