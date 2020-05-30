@@ -32,5 +32,15 @@ namespace MoodAnalysersTest
             Assert.AreEqual("Sad", result);
         }
 
+
+        [Test]
+        public void givenMood_whenPassNullParameter_shouldReturnHappy()
+        {
+            moodAnalyser MoodA = new moodAnalyser(null);
+            string result = MoodA.varificatioTest();
+            Assert.AreEqual("Happy", result);
+
+        }
+
     }
 }
