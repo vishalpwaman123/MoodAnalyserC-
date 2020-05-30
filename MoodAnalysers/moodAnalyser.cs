@@ -26,11 +26,31 @@ namespace MoodAnalysers
                 {
                     return "Sad"; 
                 }
-            }catch(NullReferenceException e)
+            }catch(NullReferenceException)
             {
-                return "Happy";
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_NULL, "Please Enter Proper");
             }
         }
+
+        public string varificatioTestEmpty()
+        {
+            try
+            {
+                if (Message.Contains("Happy"))
+                {
+                    return "Happy";
+                }
+                else
+                {
+                    return "Sad";
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_EMPTY, "Please Enter Proper Input");
+            }
+        }
+
 
     }
 }

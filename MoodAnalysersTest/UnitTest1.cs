@@ -17,7 +17,7 @@ namespace MoodAnalysersTest
         public void givenMood_whenHappy_shouldReturnHappy()
         {
             moodAnalyser MoodA = new moodAnalyser("Happy");
-            string result = MoodA.varificatioTest();
+            string result = MoodA.varificatioTestEmpty();
             Assert.AreEqual("Happy", result);
         }
 
@@ -28,7 +28,7 @@ namespace MoodAnalysersTest
         public void givenMood_whenSad_shouldReturnSad()
         {
             moodAnalyser MoodA = new moodAnalyser("Sad");
-            string result = MoodA.varificatioTest();
+            string result = MoodA.varificatioTestEmpty();
             Assert.AreEqual("Sad", result);
         }
 
@@ -36,12 +36,33 @@ namespace MoodAnalysersTest
         /// Added: Code Of Given Mood when Pass Null Pointer should Return Happy
         /// </summary>
         [Test]
-        public void givenMood_whenPassNullParameter_shouldReturnHappy()
+        public void givenMood_whenPassNullParameter_shouldReturnProperMessage()
         {
-            moodAnalyser MoodA = new moodAnalyser(null);
-            string result = MoodA.varificatioTest();
-            Assert.AreEqual("Happy", result);
+            string result = null;
+            try
+            {
+                moodAnalyser MoodA = new moodAnalyser(null);
+                result = MoodA.varificatioTest();
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual(MoodAnalyserException.ExceptionType.ENTERED_NULL, e.type);
+            }
+        }
 
+        [Test]
+        public void givenMood_whenPassEmptyStringParameter_shouldReturnProperMesssage()
+        {
+            string result = null;
+            try
+            {
+                moodAnalyser MoodA = new moodAnalyser(" ");
+                result = MoodA.varificatioTestEmpty();
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual(MoodAnalyserException.ExceptionType.ENTERED_EMPTY, e.type);
+            }
         }
 
     }
