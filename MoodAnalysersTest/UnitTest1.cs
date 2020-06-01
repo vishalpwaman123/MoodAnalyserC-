@@ -65,6 +65,9 @@ namespace MoodAnalysersTest
             }
         }
 
+        /// <summary>
+        ///Added: Code Of Given Mood And Create Object Using Reflaction Pass Parametrized Constructor
+        /// </summary>
         [Test]
         public void givenMood_whenAnalysisMood_CreateObjectusingReflactionPassParametrizedConstructor()
         {
@@ -73,6 +76,17 @@ namespace MoodAnalysersTest
             bool actual = moodObj.Equals(reflactObj);
             Assert.AreEqual(false, actual);
         }
+
+        /// <summary>
+        /// Create Object Using Reflaction Not Pass Parametrized Constructor
+        /// </summary>
+        [Test]
+        public void givenMood_whenAnalysisMood_CreateObjectusingReflactionNotPassProperParametrizedConstructor()
+        {
+            object reflactObj = MoodAnalyserReflaction.CreateObjectUsingReflection("MoodAnalysers.moodAnalyser",123);
+            Assert.AreEqual(MoodAnalyserException.ExceptionType.No_Class_Method, reflactObj);
+        }
+
 
     }
 }
