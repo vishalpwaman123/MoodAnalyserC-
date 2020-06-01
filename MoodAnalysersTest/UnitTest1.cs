@@ -74,5 +74,15 @@ namespace MoodAnalysersTest
             Assert.AreEqual(false, actual);
         }
 
+        [Test]
+        public void givenMood_whenAnalysisMood_CreateObjectusingReflactionNotPassProperParametrizedConstructor()
+        {
+            object reflactObj = MoodAnalyserReflaction.CreateObjectUsingReflection("MoodAnalysers.moodAnalyser",123);
+            moodAnalyser moodObj = new moodAnalyser();
+            //var Expected = MoodAnalyserException.ExceptionType.No_Class_Method;
+            Assert.AreEqual(MoodAnalyserException.ExceptionType.No_Class_Method, reflactObj);
+        }
+
+
     }
 }
