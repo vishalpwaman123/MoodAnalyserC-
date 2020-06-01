@@ -87,6 +87,19 @@ namespace MoodAnalysersTest
             Assert.AreEqual(MoodAnalyserException.ExceptionType.No_Class_Method, reflactObj);
         }
 
+        [Test]
+        public void givenMood_whenAnalysisMood_SetFieldValueShouldReturnHappy()
+        {
+            object reflactObj = MoodAnalyserReflaction.InvokeMethodUsingReflaction("MoodAnalysers.moodAnalyser","message");
+            Assert.AreEqual("Happy", reflactObj);
+        }
+
+        [Test]
+        public void givenMood_whenAnalysisMood_SetImproperFieldNameShouldReturnHappy()
+        {
+            object reflactObj = MoodAnalyserReflaction.InvokeMethodUsingReflaction("MoodAnalysers.moodAnalyser", null);
+            Assert.AreEqual("No_Field_Exception", reflactObj);
+        }
 
     }
 }

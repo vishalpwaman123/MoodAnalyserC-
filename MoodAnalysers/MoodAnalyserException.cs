@@ -11,7 +11,8 @@ namespace MoodAnalysers
             ENTERED_NULL,
             ENTERED_EMPTY,
             No_Class_Exception,
-            No_Class_Method
+            No_Class_Method,
+            No_Field_Exception
         }
         public ExceptionType type;
         public MoodAnalyserException(ExceptionType type, String message) : base(message)
