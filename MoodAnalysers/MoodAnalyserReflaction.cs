@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace MoodAnalysers
@@ -26,6 +27,14 @@ namespace MoodAnalysers
                 return MoodAnalyserException.ExceptionType.No_Class_Method;
             }
              
+        }
+
+        public static string InvokeMethodUsingReflection(string message)
+        {
+            MethodBase method = typeof(moodAnalyser).GetMethod("AnalyseMood");
+            object objectInstance = Activator.CreateInstance(typeof(moodAnalyser), message);
+            string mood = (string)method.Invoke(objectInstance, null);
+            return mood;
         }
     }
 }
