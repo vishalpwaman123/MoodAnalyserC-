@@ -90,11 +90,23 @@ namespace MoodAnalysersTest
         [Test]
         public void givenMood_whenAnalysisMood_SetFieldValueShouldReturnHappy()
         {
-            string result = MoodAnalyserReflaction.InvokeMethodUsingReflection("I am in Any Mood");
+            string result = MoodAnalyserReflaction.InvokeMethodUsingReflection("AnalyseMood", "I am in Any Mood");
             Assert.AreEqual("Happy", result);
         }
 
-        
+
+        [Test]
+        public void GivenMoodMessageToInvokeUsingReflectionMethod_WhenNotProper_ShouldThrowException()
+        {
+            try
+            {
+                string result = MoodAnalyserReflaction.InvokeMethodUsingReflection("007AnalyseMood", "I am in Any Mood");
+            }
+            catch (MoodAnalyserException e)
+            {
+                Assert.AreEqual(MoodAnalyserException.ExceptionType.No_Class_Method, e.type);
+            }
+        }
 
     }
 }
