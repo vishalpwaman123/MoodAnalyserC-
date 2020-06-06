@@ -22,7 +22,7 @@ namespace MoodAnalysers
                     throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.No_Class_Method, " ");
                 }
                 return objInstance;
-            }catch(MissingMethodException)
+            }catch(MissingMethodException e)
             {
                 return MoodAnalyserException.ExceptionType.No_Class_Method;
             }
@@ -38,7 +38,7 @@ namespace MoodAnalysers
                 string mood = (string)method.Invoke(objectInstance, null);
                 return mood;
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
                 throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.No_Class_Method, "Method Not Found");
             }

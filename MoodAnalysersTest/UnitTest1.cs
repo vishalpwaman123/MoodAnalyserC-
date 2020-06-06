@@ -17,7 +17,7 @@ namespace MoodAnalysersTest
         public void givenMood_whenHappy_shouldReturnHappy()
         {
             moodAnalyser MoodA = new moodAnalyser("Happy");
-            string result = MoodA.varificatioTestEmpty();
+            string result = MoodA.AnalyserMood();
             Assert.AreEqual("Happy", result);
         }
 
@@ -28,7 +28,7 @@ namespace MoodAnalysersTest
         public void givenMood_whenSad_shouldReturnSad()
         {
             moodAnalyser MoodA = new moodAnalyser("Sad");
-            string result = MoodA.varificatioTestEmpty();
+            string result = MoodA.AnalyserMood();
             Assert.AreEqual("Sad", result);
         }
 
@@ -42,7 +42,7 @@ namespace MoodAnalysersTest
             try
             {
                 moodAnalyser MoodA = new moodAnalyser(null);
-                result = MoodA.varificatioTest();
+                result = MoodA.AnalyserMood();
             }
             catch (MoodAnalyserException e)
             {
@@ -57,7 +57,7 @@ namespace MoodAnalysersTest
             try
             {
                 moodAnalyser MoodA = new moodAnalyser(" ");
-                result = MoodA.varificatioTestEmpty();
+                result = MoodA.AnalyserMood();
             }
             catch (MoodAnalyserException e)
             {
@@ -90,7 +90,7 @@ namespace MoodAnalysersTest
         [Test]
         public void givenMood_whenAnalysisMood_SetFieldValueShouldReturnHappy()
         {
-            string result = MoodAnalyserReflaction.InvokeMethodUsingReflection("AnalyseMood", "I am in Any Mood");
+            string result = MoodAnalyserReflaction.InvokeMethodUsingReflection("AnalyserMood", "I am in Any Mood");
             Assert.AreEqual("Happy", result);
         }
 

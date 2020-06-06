@@ -19,7 +19,8 @@ namespace MoodAnalysers
         }
 
       
-        public string AnalyseMood()
+
+        public string AnalyserMood()
         {
             try
             {
@@ -31,47 +32,8 @@ namespace MoodAnalysers
             }
             catch (NullReferenceException)
             {
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_NULL, "Please Enter Proper Mood");
-            }
-        }
-
-        public string varificatioTest()
-        {
-            try
-            {
-                if (Message.Contains( "Happy"))
-                {
-                    return "Happy";
-                }
-                else
-                {
-                    return "Sad"; 
-                }
-            }catch(NullReferenceException)
-            {
                 throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_NULL, "Please Enter Proper");
             }
         }
-
-        public string varificatioTestEmpty()
-        {
-            try
-            {
-                if (Message.Contains("Happy"))
-                {
-                    return "Happy";
-                }
-                else
-                {
-                    return "Sad";
-                }
-            }
-            catch (NullReferenceException)
-            {
-                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.ENTERED_EMPTY, "Please Enter Proper Input");
-            }
-        }
-
-
     }
 }
